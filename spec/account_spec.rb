@@ -15,7 +15,7 @@ describe Account do
       expect(account.balance).to eq 500
     end
 
-    it 'adds the date, type, a space, and then updated balance to array' do
+    it 'adds the date, type, a space, and then updated balance to Summary array' do
       account = Account.new
       account.credit(500, '10/01/2017')
       expect(account.summary).to eq [['10/01/2017' , 'credit' , 500 ,500]]
@@ -30,11 +30,16 @@ describe Account do
       expect(account.balance).to eq -250
     end
 
-    it 'adds the date, type, a space, and then updated balance to array' do
+    it 'adds the date, type, a space, and then updated balance to Summary array' do
       account = Account.new
       account.debit(500, '10/01/2017')
       expect(account.summary).to eq [['10/01/2017' , 'debit' , 500 , -500]]
     end
+  end
+
+  describe '#summary' do
+
+    it 'returns an account summary, including transaction type, amount, date, and altered balance' do
   end
 
 end
