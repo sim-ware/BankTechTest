@@ -11,16 +11,23 @@ describe Account do
 
     it 'adds the amount stated as param to the balance' do
       account = Account.new
-      expect(account.credit(500)).to eq 500
+      account.credit(500, '10/01/2017')
+      expect(account.balance).to eq 500
     end
+
+    it 'adds the date, type, a space, and then updated balance to array' do
+      account = Account.new
+      account.credit(500, '10/01/2017')
+      expect(account.summary).to eq [['10/01/2017' , 'credit' , 'x' ,500]]
+    end
+
   end
 
   describe '#debit' do
 
     it 'deducts the amount stated as param from the balance' do
       account = Account.new
-      account.credit(500)
-      expect(account.debit(250)).to eq 250
+      expect(account.debit(250)).to eq -250
     end
   end
 
