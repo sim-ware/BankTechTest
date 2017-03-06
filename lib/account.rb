@@ -9,4 +9,8 @@ class Account
     @balance = @balance + amt
   end
 
+  def debit(amt)
+    @balance = @balance - amt
+  end
+
 end
