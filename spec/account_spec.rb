@@ -44,7 +44,7 @@ describe Account do
       account.credit(500, '10/1/2017')
       account.debit(200, '11/1/2017')
       expect(account.show_statement).to include(["10/1/2017", "credit", 500, 500], ["11/1/2017", "debit", 200, 300])
+    end
   end
-end
 
 end
