@@ -18,9 +18,8 @@ describe Account do
     it 'adds the date, type, a space, and then updated balance to array' do
       account = Account.new
       account.credit(500, '10/01/2017')
-      expect(account.summary).to eq [['10/01/2017' , 'credit' , 'x' ,500]]
+      expect(account.summary).to eq [['10/01/2017' , 'credit' , 500 ,500]]
     end
-
   end
 
   describe '#debit' do
@@ -34,9 +33,8 @@ describe Account do
     it 'adds the date, type, a space, and then updated balance to array' do
       account = Account.new
       account.debit(500, '10/01/2017')
-      expect(account.summary).to eq [['10/01/2017' , 'x' , 'debit' , -500]]
+      expect(account.summary).to eq [['10/01/2017' , 'debit' , 500 , -500]]
     end
-
   end
 
 end

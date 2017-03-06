@@ -8,13 +8,13 @@ class Account
 
   def credit(amt, date)
     @balance = @balance + amt
-    transaction = [date, 'credit', 'x', @balance]
+    transaction = [date, 'credit', amt, @balance]
     @summary.push transaction
   end
 
   def debit(amt, date)
     @balance = @balance - amt
-    transaction = [date, 'x', 'debit', @balance]
+    transaction = [date, 'debit', amt, @balance]
     @summary.push transaction
   end
 
