@@ -1,31 +1,23 @@
+require_relative 'statement'
+
 class Account
-  attr_accessor :balance, :summary
+  attr_accessor :balance, :statement
 
   def initialize
     @balance = 0
-    @summary = []
+    @statement = Statement.new
   end
 
   def credit(amt, date)
     @balance = @balance + amt
     transaction = [date, 'credit', amt, @balance]
-    @summary.push transaction
+    @statement.summary << transaction
   end
 
   def debit(amt, date)
     @balance = @balance - amt
-    transaction = [date, 'debit', amt, @balance]
-    @summary.push transaction
-  end
-
-  def show_statement
-    puts 'Date      ||Deb/Cr||Amt||Bal||'
-    @summary.each do |line|
-      line.each do |x|
-        print x.to_s + "||"
-      end
-        print "\n"
-    end
+    transaction = [date, 'debit ', amt, @balance]
+    @statement.summary << transaction
   end
 
 end
