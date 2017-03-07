@@ -18,7 +18,7 @@ describe Statement do
         account = Account.new
         stat = Statement.new
         account.debit(500, '10/01/2017')
-        expect(account.statement.summary).to eq [['10/01/2017' , 'debit' , 500 , -500]]
+        expect(account.statement.summary).to eq [['10/01/2017' , 'debit ' , 500 , -500]]
       end
     end
 
@@ -28,7 +28,7 @@ describe Statement do
         account = Account.new
         account.credit(500, '10/1/2017')
         account.debit(200, '11/1/2017')
-        expect(account.statement.show).to include(["10/1/2017", "credit", 500, 500], ["11/1/2017", "debit", 200, 300])
+        expect(account.statement.show).to include(["10/1/2017", "credit", 500, 500], ["11/1/2017", "debit ", 200, 300])
       end
     end
 
